@@ -1,0 +1,51 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+
+app.set('view engine','ejs');
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static('public'));
+
+
+let items =["Do Workout"];
+let workList = ["Coding"];
+app.get('/', function(req,res){
+  //Finding Date...
+let today = new Date();
+
+let option = {
+  weekday : "long",
+  day : "numeric",
+  month : "long"
+};
+let day =today.toLocaleDateString('en-US',option);
+      res.render('list',{
+        listName: day,
+        newListItem: items
+      });
+  });
+
+  app.get('/work',function(req,res){
+    res.render('list',{
+      listName: "Work",
+      newListItem: workList
+    });
+  });
+
+app.post('/',function(req,res){
+  
+  let item = req.body.newItem;
+  if(req.body.list ==='Work'){
+    workList.push(item);
+    res.redirect('/work');
+  }
+  else{
+      items.push(item);
+      res.redirect('/');
+  }
+});
+
+
+app.listen(3000, function(){
+  console.log('Server Started on port 3000');
+})
