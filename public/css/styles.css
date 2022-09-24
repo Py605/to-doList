@@ -1,7 +1,9 @@
 html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
-  min-height: 1000px;
+  min-height: 100vh;
+  
+  background-repeat: no-repeat;
   font-family: 'helvetica neue';
 }
 
@@ -11,6 +13,7 @@ h1 {
 }
 
 .box {
+  /* min-height: ; */
   max-width: 400px;
   margin: 50px auto;
   background: white;
@@ -57,14 +60,15 @@ form.item {
 }
 
 button {
-  min-height: 50px;
-  width: 50px;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   border-color: transparent;
   background-color: #A683E3;
   color: #fff;
-  font-size: 30px;
-  padding-bottom: 6px;
+  font-size: 40px;
+  /* padding: 6px; */
   border-width: 0;
 }
 
@@ -90,7 +94,9 @@ input[type="text"]:focus {
 }
 
 footer {
+  font-size: 1rem;
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
+
