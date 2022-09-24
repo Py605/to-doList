@@ -20,7 +20,6 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-
 const item1 = new Item({
   name: "Welcome to your todolist!"
 });
